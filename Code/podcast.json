@@ -1,0 +1,16 @@
+{
+	"podTitle": "Title",
+	"podLink": "http://website.com/show.xml",
+	"copyrightYearAndName": "2015 Name",
+	"podSubtitle": "Sub sub sub sub SUBTITLE",
+	"podSummary": "SUMMMMMMMMMMMARY",
+	"podAuthor": "Author",
+	"podOwnerName": "Owner",
+	"podOwnerEmail": "email@email.com",
+	"podImage": "https://image.com",
+	"podCategory": "Category",
+	"podSubCategory": "Subcategory",
+	"podSubCategory2": "Subcategory",
+	"podKeywords": "keyword, keyword2, keyword3",
+	"explicit": "maybe"
+}
