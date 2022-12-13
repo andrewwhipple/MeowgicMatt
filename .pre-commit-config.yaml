@@ -1,0 +1,61 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+        exclude: client/.*
+      - id: check-added-large-files
+        args: [--maxkb=100000]
+      - id: check-json
+        exclude: .devcontainer
+
+  - repo: https://github.com/jazzband/pip-tools
+    rev: 6.6.2
+    hooks:
+      - id: pip-compile
+        files: app/requirements/requirements.in
+        args:
+          - app/requirements/requirements.in
+      - id: pip-compile
+        files: app/requirements/requirements(-test)?\.in
+        args:
+          - app/requirements/requirements.in
+          - app/requirements/requirements-test.in
+          - --output-file=app/requirements/requirements-test.txt
+
+  - repo: https://github.com/psf/black
+    rev: 22.3.0
+    hooks:
+      - id: black
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v0.930
+    hooks:
+      - id: mypy
+        args:
+          [--no-strict-optional, --ignore-missing-imports, --show-error-codes]
+        additional_dependencies:
+          - pydantic
+          - types-pytz
+          - types-python-dateutil
+          - types-python-slugify
+          - types-requests
+
+  - repo: https://github.com/hadialqattan/pycln
+    rev: v1.1.0
+    hooks:
+      - id: pycln
+        args: [--all]
+        exclude: app/migrations/versions/.*
+        additional_dependencies:
+          - "click<8.1.0"
+
+  - repo: https://github.com/pycqa/isort
+    rev: 5.10.1
+    hooks:
+      - id: isort
+        name: isort (python)
+        args:
+          [--profile, black]
