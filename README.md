@@ -3,14 +3,14 @@ Welcome to Meowgic Matt, the [Magician For Ca(s)ts!](https://vimeo.com/48335984)
 
 This is a python script meant to run in a command line to help automate and speed up some tasks in a podcast production workflow.
 
-Overall, this is designed by [Andrew Whipple](http://andrewwhipple.com) (me!) and SPECIFICALLY set up for my workflow in producing my [podcasts](http://thatpodcastthing.com), so mileage may vary. But feel free to use and modify as you see fit! It's MIT Licensed, so rock and roll. 
+Overall, this is designed by [Andrew Whipple](http://andrewwhipple.com) (me!) and SPECIFICALLY set up for my workflow in producing my [podcasts](http://thatpodcastthing.com), so mileage may vary. But feel free to use and modify as you see fit! It's MIT Licensed, so rock and roll.
 
-ALSO VERY IMPORTANT: this is held together with string. There's almost no error checking. If anything is a little bit off, it'll break, and maybe break disasterously. It works for me at the moment, but no promises it will work for you. So use at your own risk. 
+ALSO VERY IMPORTANT: this is held together with string. There's almost no error checking. If anything is a little bit off, it'll break, and maybe break disasterously. It works for me at the moment, but no promises it will work for you. So use at your own risk.
 
 ##Features:
 
 ####RSS Management:
-You can use Meowgic Matt to create iTunes-complaint RSS feeds, add episodes to the feed, and (if you host your rss file via a git-controlled site) automatic pushing to git. 
+You can use Meowgic Matt to create iTunes-complaint RSS feeds, add episodes to the feed, and (if you host your rss file via a git-controlled site) automatic pushing to git.
 
 ####Mp3 Management and Conversion:
 The file structure of Meowgic Matt is meant to help track the progress of an mp3 file through raw recording, editing, queuing, and a published archive. Additionally, it adds a wrapper to the LAME conversion engine to get mp3 files well-sized, but still nice sounding, for most podcast needs.
@@ -19,7 +19,7 @@ The file structure of Meowgic Matt is meant to help track the progress of an mp3
 This whole script is EXTREMELY opinionated about how to structure the file directory and how to name files, which can be a good thing! In the pursuit of maximum laziness (or as some may call it, "efficiancy") on the part of the podcast producer, if you want to use this script you actually have to stick to a reasonable and well-organized set of conventions. Which is good for keeping track of things. You'll probably thank me when you have to hunt down a rogue mp3 somewhere.
 
 ####Lightweight....-ness?
-This is just a a little under 400 lines of python scripts, and all data storage is in some JSON files. Nothing fancy. 
+This is just a a little under 400 lines of python scripts, and all data storage is in some JSON files. Nothing fancy.
 
 
 ##Eventual Features:
@@ -28,13 +28,13 @@ This is just a a little under 400 lines of python scripts, and all data storage 
 Well, maybe not truly "one-step," but in the future, if you follow naming and organization conventions and use git-controlled sites to host RSS files, you can do super speedy and automated publishing!
 
 ####Better Modularity
-Some sort of flag system to let you customize Meowgic Matt for your needs. Only want to do mp3 conversion? Awesome, you get a version of the script with only that. Just RSS? Neato, say bye forever (or until you flip a flag) to mp3s. 
+Some sort of flag system to let you customize Meowgic Matt for your needs. Only want to do mp3 conversion? Awesome, you get a version of the script with only that. Just RSS? Neato, say bye forever (or until you flip a flag) to mp3s.
 
 ####Support for more audio filetypes and conversion
-If someone knows a good aiff -> mp3 or aac -> mp3 command line converter, I'll link it up. 
+If someone knows a good aiff -> mp3 or aac -> mp3 command line converter, I'll link it up.
 
 ####Better Data Storing and Flagging
-Right now there's just a JSON file that stores information about your shows and Meowgic Matt setup. If I get better at File I/O and parsing/editing JSON programmatically, then hopefully more flags and info can be stored there to make it even easier and more consistent to use. Though I don't think I'll ever go the route of a real database, because that's a bit more heavyweight than I want this tool to be. 
+Right now there's just a JSON file that stores information about your shows and Meowgic Matt setup. If I get better at File I/O and parsing/editing JSON programmatically, then hopefully more flags and info can be stored there to make it even easier and more consistent to use. Though I don't think I'll ever go the route of a real database, because that's a bit more heavyweight than I want this tool to be.
 
 ####???
 You tell me bro. Most likely any new features will be added because, in producing my own shows, I'll want something automated, but if you use this and like it and want something, let me know! No promises, but if I'm bored and have free time, I'll probably tinker with it.
@@ -98,7 +98,7 @@ Additionally, it's expected you have your podcasts in mp3 format, and do any con
 
 **JSON For RSS**
 
-Rather than entering things for RSS feed creation via the command line, which can be quite tedious, it can be written into a JSON file and read by the Meowgic Magician itself. In the "Code" folder lives a demo file called "podcast.json" that has the info needed for creating the base feed with overall podcast information. Duplicate this file, rename it according to the name of your shows podcast folder (see Naming Conventions above!) and move into the "Data/podcastname" subfolder. 
+Rather than entering things for RSS feed creation via the command line, which can be quite tedious, it can be written into a JSON file and read by the Meowgic Magician itself. In the "Code" folder lives a demo file called "podcast.json" that has the info needed for creating the base feed with overall podcast information. Duplicate this file, rename it according to the name of your shows podcast folder (see Naming Conventions above!) and move into the "Data/podcastname" subfolder.
 
 Similarly, there is a file "episode.json" that is a demo of the information needed for an individual episode. Duplicate this file, rename it according to naming conventions, and fill out the info with the appropriate stuff for that episode, then move it to "Data/podcastname"
 
@@ -106,7 +106,7 @@ Similarly, there is a file "episode.json" that is a demo of the information need
 
 You don't even need to use the actual program, beyond setup, to use the first useful mp3 tool: a set of organized folders to track the production of the mp3 files. YAY ORGANIZATION!
 
-All the other fun stuff Meowgic Matt uses are just wrappers for the LAME conversion engine, so make sure you have that, or you'll run into all kinds of errors. 
+All the other fun stuff Meowgic Matt uses are just wrappers for the LAME conversion engine, so make sure you have that, or you'll run into all kinds of errors.
 
 To do mp3 conversion:
 
@@ -120,4 +120,4 @@ To do mp3 conversion:
 
 To add a new podcast, type 'pod' from the main menu and follow the on-screen instructions.
 
-To reset Meowgic Matt to its factory conditions, type 'reset' from the main menu. BUT BE WARNED: this will delete ANYTHING in the subfolders, so if that's the only location for your mp3 files, or RSS stuff, or show notes, or what have you, it will ALL BE GONE. BE VERY VERY VERY CAREFUL WITH RESETING. IT IS A NUCLEAR OPTION. 
+To reset Meowgic Matt to its factory conditions, type 'reset' from the main menu. BUT BE WARNED: this will delete ANYTHING in the subfolders, so if that's the only location for your mp3 files, or RSS stuff, or show notes, or what have you, it will ALL BE GONE. BE VERY VERY VERY CAREFUL WITH RESETING. IT IS A NUCLEAR OPTION.
