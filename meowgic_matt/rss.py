@@ -69,8 +69,7 @@ def format_category_list(
     return [main_category1, main_category2]
 
 
-@app.command()
-def create_feed():
+def build_feed() -> Channel:
     title = typer.prompt("Podcast title")
     link = typer.prompt("Podcast link")
     language = typer.prompt("Podcast language (leave blank for en-us)") or "en-us"
@@ -114,7 +113,7 @@ def create_feed():
         itunes_explicit=itunes_explicit,
     )
 
-    print(feed.to_xml())
+    return feed
 
 
 def edit_channel():
@@ -133,12 +132,22 @@ def delete_item():
     pass
 
 
-def save_feed(feed: Channel, filename: str):
+@app.command()
+def create_feed(filename: str):
     """
     Notes: take the feed, save it as an XML file with the given filename
-
-
     """
+    if not filename.endswith(".xml"):
+        print(f"[bold red]Error:[/bold red] file name must end with .xml")
+        raise typer.Exit()
+
+    feed = build_feed()
+
+    try:
+        with open(filename, "w") as file:
+            file.write(feed.to_xml())
+    except:
+        print(f"[bold red]Error:[/bold red] writing to file {filename}")
 
 
 if __name__ == "__main__":
